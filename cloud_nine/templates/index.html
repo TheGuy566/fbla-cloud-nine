@@ -1,0 +1,47 @@
+{% extends "base.html" %}
+{% block title %} | Home{% endblock %}
+{% block content %}
+      <section class="home-main-section">
+          <div class="img-wrapper">
+              <img src="{{ url_for('static', filename='img/supportive-travel-pillow.jpeg') }}">
+            <div class="home-image"></div>
+          </div>
+          <div class="call-to-action">
+            <h1 class="title">Comfort simplified</h1>
+            <span class="subtitle">Fly with us for the most comfortable in-flight experience</span>
+            <br>
+            <a href="{{ url_for('auth.signup') }}" class="btn">Join Now</a>
+          </div>
+      </section>
+      <section style="text-align: center;"><a href="#home-about"><i class="fa fa-angle-down" style="font-size: 72px; color: white; padding-top: 50px;"></i></a></section>
+      <section style="background-color: #002C45; height: 65vh; margin-top: 100px;" id="home-about">
+          <div style="margin: 25px 50px;">
+              <h1 class="title" style="font-size: 45px; margin-bottom: 10px; margin-top: 10px; text-align: center;">What We Do</h1>
+              <p style="font-size: 27.5px;">Here at Cloud Nine your comfort is our number #1 priority. This is why we offer simple, high-quality items such as blankets, neck pillows, and sleep-masks. We even offer comfort solutions for children like, pacifiers. We also have games and videos on our 8-inch custom seat-screens for full use throughout the flight and free, high-speed wifi on all of our planes. But comfort does not just include what's inside the plane. We have equipped all with cutting-edge carbon-fiber wings to reduce turbulence when flying. How's that for comfort?</p>
+              <div style="margin-left: 40%; margin-right: 40%;"><a href="{{ url_for('main.about') }}" class="btn">About Us</a></div>
+          </div>
+      </section>
+      <h1 style="text-align: center; margin-top: 20px;">Explore Our Services</h1>
+      <section style="height: 45vh; margin-top: 10px;">
+          <section style="display: flex;">
+              <a href="#" class="card" style="text-decoration: none;">
+                  <figure class="image">
+                      <img src="{{ url_for('static', filename='img/about-main.jpg') }}" width="100%">
+                  </figure>
+                  <article class="text">
+                      <h2>Fly With Us</h2>
+                      <p>Here's how to become a member of the Cloud Nine family</p>
+                  </article>
+              </a>
+              <a href="#" class="card" style="text-decoration: none;">
+                  <figure class="image">
+                    <img src="{{ url_for('static', filename='img/people-coffee-meeting-team-7096.jpg') }}" width="100%">
+                  </figure>
+                  <article class="text">
+                      <h2 >Join Our Programs</h2>
+                      <p>Here is how we reward you for flying with us.</p>
+                  </article>
+              </a>
+          </section>
+      </section>
+{% endblock %}

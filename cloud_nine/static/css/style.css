@@ -1,0 +1,173 @@
+@import url('https://fonts.googleapis.com/css?family=Arvo&display=swap');
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  padding: 0;
+  margin: 0;
+  background-color: #000b1c;
+  font-family: Arvo, sans-serif;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.full-height-grow {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-logo {
+    display: flex;
+    align-items: center;
+    font-size: 1.25em;
+    color: inherit;
+    text-decoration: none;
+}
+
+.brand-logo-name {
+    margin-left: 1rem;
+}
+
+.main-nav ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.main-nav a {
+    color: inherit;
+    text-decoration: none;
+    padding: 1rem;
+}
+
+.main-nav a:hover {
+    color: #adadad;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 75px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+.home-main-section {
+    display: flex;
+    align-items: stretch;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.home-main-section .call-to-action {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin: 1rem;
+    align-self: center;
+}
+
+.home-main-section .img-wrapper {
+  flex-grow: 1;
+  flex-direction: column;
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+}
+
+.home-main-section .home-image {
+  background-image: "static/img/supportive-travel-pillow.jpeg";
+  flex-grow: 1;
+  max-height: 70vh;
+  min-width: 30vw;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: bottom left;
+}
+
+.btn {
+    color: white;
+    background-color: #1762A7;
+    padding: .75rem 1.5rem;
+    border-radius: .5rem;
+    text-decoration: none;
+    font-size: .9rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #2180d8;
+}
+
+.btn:focus {
+  background-color: #2796ff;
+}
+
+@media (max-width: 900px) {
+  .home-main-section .img-wrapper {
+    display: none;
+  }
+
+  .home-main-section {
+    justify-content: center;
+  }
+}
+
+/*------------------------------------------------*/
+.main-nav ul, .footer-nav ul {
+  display: flex;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.main-nav a, .footer-nav a {
+  color: inherit;
+  text-decoration: none;
+  padding: 1rem;
+}
+
+.main-nav a:hover, .footer-nav a:hover  {
+  color: #adadad;
+}
+
+.main-header, .main-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.main-header {
+  height: 140px;
+}
+
+.main-footer {
+  height: 70px;
+  background-color: #202027;
+  font-weight: bold;
+  width: 100%;
+}
+
+.social-link img {
+  width: 1em;
+  margin-right: .25rem;
+}
+
+.main-footer .container {
+  display: flex;
+  justify-content: space-between;
+}

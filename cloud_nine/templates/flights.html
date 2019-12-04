@@ -1,0 +1,43 @@
+{% extends "base.html" %}
+{% block title %} | Flights{% endblock %}
+{% block content %}
+<div class="form">
+    <h1>Login</h1>
+    <form class="login-form" method="POST" action="{{ url_for('auth.login') }}">
+        <input type="text" name="name" placeholder="username"/>
+        <input type="password" name="password" placeholder="password"/>
+        <button>login</button>
+        <p class="message">Don't have an account? <a href="{{ url_for('auth.signup') }}">Sign up</a></p>
+        <p class="message"><a href="{{ url_for('main.index') }}">Back To Home Page</a></p>
+    </form>
+</div>
+{{ context }}
+<!--
+<section>
+    
+</section>
+<div style="background-color: rgb(19, 21, 53); overflow: visible;">
+        {% for x in booked_flights[0:5] %}
+        <h1>{{ x.takeoff }} ----TO---- {{ x.landing }}  MILES {{ distance }}</h1>
+        {% endfor %}
+        {% if bookings|length > 5 %}
+            <script>
+                function myFunction() {
+                    var y = document.getElementsByClassName('extra_flights');
+                    if (y[0].style.display === "none") {
+                        y[0].style.display = 'block';
+                    } else {
+                        y[0].style.display = 'none';
+                    }
+                }
+            </script>
+                <button type="button" onclick="myFunction()">{{ bookings|length - 5}} more...</button>
+                <div class="extra_flights">
+                    {% for x in booked_flights[5:] %}
+                        <h1>{{ x.takeoff }} ----TO---- {{ x.landing }}</h1>
+                    {% endfor %}
+                </div>
+        {% endif %}
+    </div>
+-->
+{% endblock %}
