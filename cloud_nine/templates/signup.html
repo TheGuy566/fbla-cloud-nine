@@ -13,7 +13,7 @@
                 <form class="login-form" method="POST" action="{{ url_for('auth.signup') }}">
                     <input type="text" name="name" placeholder="username"/>
                     <input type="password" name="password" placeholder="password"/>
-                    <button>login</button>
+                    <button>Signup</button>
                     <p class="message">Already have an account? <a href="{{ url_for('auth.login') }}">Login</a></p>
                     <p class="message"><a href="{{ url_for('main.index') }}">Back To Home Page</a></p>
                 </form>
