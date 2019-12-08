@@ -52,6 +52,7 @@ def about():
     return render_template("about.html")
 
 @main.route("/flights", methods=['GET', 'POST'])
+@login_required
 def flights():
     if not current_user.is_authenticated:
         return redirect(url_for('auth.login'))
@@ -131,6 +132,7 @@ def terms():
     return render_template("terms.html")
 
 @main.route("/profile_stats")
+@login_required
 def profile_stats():
     flight_book = Flights.query\
         .filter_by(flyer_id=current_user.id)\
@@ -148,6 +150,7 @@ def profile_stats():
     return render_template("profile.html", **context)
 
 @main.route("/profile_notify")
+@login_required
 def profile_notify():
     today = datetime.datetime.now()
     formatted = today.strftime("%Y-%m-%d")
@@ -166,6 +169,7 @@ def profile_notify():
     return render_template("profile_notify.html", **context)
 
 @main.route("/profile_booked", methods=['GET', 'POST'])
+@login_required
 def profile_booked():
     if request.method == 'POST':
         delete_me = request.form["delete"]
