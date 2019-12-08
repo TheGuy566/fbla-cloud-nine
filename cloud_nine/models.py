@@ -28,6 +28,6 @@ class Flights(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     takeoff = db.Column(db.String(50))
     landing = db.Column(db.String(50))
-    distance = db.Column(db.Integer)
+    distance = db.Column(db.String(50))
     date = db.Column(db.Integer)
     flyer_id = db.Column(db.Integer, db.ForeignKey('user.id'))
