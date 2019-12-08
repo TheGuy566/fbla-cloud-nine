@@ -21,19 +21,19 @@
               <div style="margin-left: 40%; margin-right: 40%;"><a href="{{ url_for('main.about') }}" class="btn">About Us</a></div>
           </div>
       </section>
-      <h1 style="text-align: center; margin-top: 20px;">Explore Our Services</h1>
-      <section style="height: 45vh; margin-top: 10px;">
+      <h1 style="text-align: center; margin-top: 0px;">Explore Our Services</h1>
+      <section style="height: 45vh; margin-top: 0px;">
           <section style="display: flex;">
-              <a href="#" class="card" style="text-decoration: none;">
+              <a href="{{ url_for('main.flights') }}" class="card" style="text-decoration: none;">
                   <figure class="image">
-                      <img src="{{ url_for('static', filename='img/about-main.jpg') }}" width="100%">
+                      <img src="{{ url_for('static', filename='img/jet-cloud-landing-aircraft-46148.jpg') }}" width="100%">
                   </figure>
                   <article class="text">
                       <h2>Fly With Us</h2>
                       <p>Here's how to become a member of the Cloud Nine family</p>
                   </article>
               </a>
-              <a href="#" class="card" style="text-decoration: none;">
+              <a href="{{ url_for('main.programs') }}" class="card" style="text-decoration: none;">
                   <figure class="image">
                     <img src="{{ url_for('static', filename='img/people-coffee-meeting-team-7096.jpg') }}" width="100%">
                   </figure>

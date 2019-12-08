@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block title %} | Profile{% endblock %}
+{% block content %}
+<h1 style="white-space: pre; text-align: center;">Welcome,  {{ current_user.name }}</h1>
+<div style="display: flex; justify-content: space-between;" class="main-nav">
+    <a href="{{ url_for('main.profile_booked') }}">Booked Flights</a>
+    <a href="{{ url_for('main.profile_notify') }}">Notifications</a>
+    <a href="{{ url_for('main.profile_stats') }}">Statistics</a>
+</div>
+<section style="background-color: #002C45; margin-top: 5px; margin-bottom: 174px;">
+    <div style="margin: 25px 50px; ">
+        <h1 style="text-align: center;">Flight Notifications</h1>
+        {% if not flight_book %}
+            <h3 style="text-align: center; margin-top: 20px;">No booked flights flying today.</h3>
+        {% endif %}
+        {% for flight in flight_book %}
+            <div style="border-style: solid; border-color: white;">
+                <h4>Your Flight from {{ flight.takeoff }} to {{ flight.landing }} will be flying today.</h4>
+                <h4>Here are some things to do in {{ flight.landing  }} <a href="{{ travel[flight.landing] }}">Travel Brochure</a></h4>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}

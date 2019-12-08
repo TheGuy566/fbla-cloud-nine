@@ -1,43 +1,45 @@
 {% extends "base.html" %}
 {% block title %} | Flights{% endblock %}
 {% block content %}
-<div class="form">
-    <h1>Login</h1>
-    <form class="login-form" method="POST" action="{{ url_for('auth.login') }}">
-        <input type="text" name="name" placeholder="username"/>
-        <input type="password" name="password" placeholder="password"/>
-        <button>login</button>
-        <p class="message">Don't have an account? <a href="{{ url_for('auth.signup') }}">Sign up</a></p>
-        <p class="message"><a href="{{ url_for('main.index') }}">Back To Home Page</a></p>
+<h1 style="text-align: center;">Book Your Flights</h1>
+<section style="background-color: #002C45; padding-bottom: 40px; border-style: solid; border-color: white;">
+    <form method="POST" action="{{ url_for('main.flights') }}" style="display: flex; margin-top: 30px; margin-right: 20px; margin-left: 20px;">
+        <label style="white-space: pre;">Start Location:  </label>
+        <div class="custom-select_drop_flight_" style="width:200px;">
+            <select name="start_location">
+                {% for x in locations %}
+                <option value = "{{x}}">{{x}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <label style="white-space: pre;">End Location:  </label>
+        <div class="custom-select_drop_flight_" style="width:200px;">
+            <select name="end_location">
+                {% for x in locations %}
+                <option value = "{{x}}">{{x}}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <style>
+            [type="date"] {
+              background:#fff url(https://cdn1.iconfinder.com/data/icons/cc_mono_icon_set/blacks/16x16/calendar_2.png)  97% 50% no-repeat ;
+            }
+            [type="date"]::-webkit-inner-spin-button {
+              display: none;
+            }
+            [type="date"]::-webkit-calendar-picker-indicator {
+              opacity: 0;
+            }
+        </style>
+        <label style="white-space: pre;">Date:  </label>
+        <input type="date" name="date" id="dateofbirth">
+        <button type="submit" class="btn" style="margin-left: 10px;">Book</button>
     </form>
-</div>
-{{ context }}
-<!--
-<section>
-    
 </section>
-<div style="background-color: rgb(19, 21, 53); overflow: visible;">
-        {% for x in booked_flights[0:5] %}
-        <h1>{{ x.takeoff }} ----TO---- {{ x.landing }}  MILES {{ distance }}</h1>
-        {% endfor %}
-        {% if bookings|length > 5 %}
-            <script>
-                function myFunction() {
-                    var y = document.getElementsByClassName('extra_flights');
-                    if (y[0].style.display === "none") {
-                        y[0].style.display = 'block';
-                    } else {
-                        y[0].style.display = 'none';
-                    }
-                }
-            </script>
-                <button type="button" onclick="myFunction()">{{ bookings|length - 5}} more...</button>
-                <div class="extra_flights">
-                    {% for x in booked_flights[5:] %}
-                        <h1>{{ x.takeoff }} ----TO---- {{ x.landing }}</h1>
-                    {% endfor %}
-                </div>
-        {% endif %}
-    </div>
--->
+{% for flight in flight_book %}
+<div style="background-color: #002C45; padding-top: 10px; text-align: center;">
+    <h2 style="white-space: pre;">{{ flight.takeoff }}     TO     {{ flight.landing }}        {{ flight.date }}</h2>
+</div>
+{% endfor %}
+<section style="margin-bottom: 255px;"></section>
 {% endblock %}

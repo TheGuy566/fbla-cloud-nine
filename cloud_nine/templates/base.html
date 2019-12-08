@@ -8,6 +8,7 @@
         <link href="{{ url_for('static', filename='css/boxes.css') }}" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
         <link rel="shortcut icon" type="image/x-icon" href="{{ url_for('static', filename='img/cloud_logo(3).png') }}"/>
+        {% block extra %}{% endblock %}
         <title>Cloud Nine{% block title %}{% endblock %}</title>
     </head>
     <body class="full-height-grow">
@@ -27,12 +28,26 @@
                             <li><a href="{{ url_for('auth.signup') }}">Sign Up</a></li>
                             {% endif %}
                             {% if current_user.is_authenticated %}
+                            <li><a href="{{ url_for('main.profile_stats') }}">Profile</a></li>
                             <li><a href="{{ url_for('auth.logout') }}">Logout</a></li>
                             {% endif %}
                         </ul>
                     </nav>
             </header>
-        {% block main_image %}{% endblock %}
+            <div class="container">
+                {% with messages = get_flashed_messages(with_categories=true) %}
+                    {% if messages %}
+                        {% for category, message in messages %}
+                            <div class="alert_{{ category }}">
+                                <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                                <span>{{ message }}</span>
+                            </div>
+                        {% endfor %}
+                    {% endif %}
+                {% endwith %}
+            </div>
+        {% block main_image %}
+        {% endblock %}
         {% block content %}
         {% endblock %}
         </div>

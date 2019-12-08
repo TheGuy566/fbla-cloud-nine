@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% block title %} | Profile{% endblock %}
+{% block content %}
+<h1 style="white-space: pre; text-align: center;">Welcome,  {{ current_user.name }}</h1>
+<div style="display: flex; justify-content: space-between;" class="main-nav">
+    <a href="{{ url_for('main.profile_booked') }}">Booked Flights</a>
+    <a href="{{ url_for('main.profile_notify') }}">Notifications</a>
+    <a href="{{ url_for('main.profile_stats') }}">Statistics</a>
+</div>
+<section style="background-color: #002C45; margin-top: 5px; margin-bottom: 174px;">
+    <div style="margin: 25px 50px;">
+        <h1 style="text-align: center;">Booked Flights</h1>
+        <form method="POST" action="{{ url_for('main.profile_booked') }}">
+            {% if not flight_book %}
+                <h3 style="text-align: center; margin-top: 20px;">No flights have been booked.</h3>
+            {% endif %}
+            {% for flight in flight_book %}
+                <div style="background-color: #002C45; padding-top: 30px; text-align: center;border-style: solid; border-color: white;">
+                    <h2 style="white-space: pre; text-align: center;">{{ flight.takeoff }}     TO     {{ flight.landing }}        {{ flight.date }}</h2>
+                    <button type="submit" name="delete" value="{{ flight.id }}" class="btn">Delete</button>
+                </div>
+            {% endfor %}
+        </form>
+    </div>
+</section>
+{% endblock %}

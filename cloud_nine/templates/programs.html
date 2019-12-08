@@ -1,22 +1,30 @@
 {% extends "base.html" %}
 {% block title %} | Programs{% endblock %}
+{% block main_image %}
+    <img src="{{ url_for('static', filename='img/new-programs.jpg') }}" width="100%">
+{% endblock %}
 {% block content %}
-        <section style="display: flex;">
-            <a href="#" class="card">
-                <figure class="image">
-                </figure>
-                <article class="text">
-                    <h2>Work For Us</h2>
-                    <p>Here's how to become a member of the Cloud Nine family</p>
-                </article>
-            </a>
-            <a href="#" class="card">
-                    <figure class="image">
-                    </figure>
-                    <article class="text">
-                        <h2 style="text-decoration: none;">Frequent Flyers</h2>
-                        <p>Here is how we reward you for flying with us.</p>
-                    </article>
-            </a>
-        </section>
+<h1 class="title" style="font-size: 45px; margin-bottom: 10px; margin-top: 10px; text-align: center;">Our Programs</h1>
+<section style="height: 45vh; margin-top: 20px;">
+    <section style="display: flex;">
+        <a href="{{ url_for('main.work') }}" class="card" style="text-decoration: none;">
+            <figure class="image">
+                <img src="{{ url_for('static', filename='img/two-pilots-sitting-inside-plane-2064123.jpg') }}" width="100%">
+            </figure>
+            <article class="text">
+                <h2>Work For Us</h2>
+                <p style="font-size: 17px;">Here's how to become a member of the Cloud Nine family</p>
+            </article>
+        </a>
+        <a href="{{ url_for('main.flyers') }}" class="card" style="text-decoration: none;">
+            <figure class="image">
+              <img src="{{ url_for('static', filename='img/photo-of-people-boarding-airliner-1710482.jpg') }}" width="100%">
+            </figure>
+            <article class="text">
+                <h2>Frequent Flyers</h2>
+                <p>Here is how we reward you for flying with us.</p>
+            </article>
+        </a>
+    </section>
+</section>
 {% endblock %}

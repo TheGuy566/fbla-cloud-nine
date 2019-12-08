@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %} | About{% endblock %}
+{% block main_image %}
+<img src="{{ url_for('static', filename='img/photo-of-people-boarding-airliner-1710482.jpg') }}" width="100%">
+{% endblock %}
+{% block content %}
+<section style="background-color: #002C45; height: 80vh; margin-top: 150px;">
+    <div style="margin: 25px 50px;">
+        <h1 class="title" style="font-size: 45px; margin-bottom: 10px; margin-top: 10px; text-align: center;">Frequent Flyers</h1>
+        <p style="font-size: 27.5px;">Here at Cloud Nine we treat our customers with the upmost respect. This is why we reward you for flying with us. For every two kilometers you fly with us, you earn 1 rewards kilometer (We refer to these as "miles" on our site to keep things simple). Currently we are working on adding a feature where you can book flights with these "miles" but for now we will only be able to allow our users to earn mils, rather than use them. This new system is still in its infancy stage, so if you have any questions, would like to express concerns, or you just want to say hi please, contact us at our email below. Thanks for improving our services.</p>
+        <div style="text-align: center; font-size: 27.5px;">Email: NineCloudAirlines@gmail.com</div>
+    </div>
+</section>
+{% endblock %}

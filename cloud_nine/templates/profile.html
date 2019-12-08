@@ -1,4 +1,30 @@
 {% extends "base.html" %}
-{% block title %} | Proflie{% endblock %}
+{% block title %} | Profile{% endblock %}
 {% block content %}
+<h1 style="white-space: pre; text-align: center;">Welcome,  {{ current_user.name }}</h1>
+<div style="display: flex; justify-content: space-between;" class="main-nav">
+    <a href="{{ url_for('main.profile_booked') }}">Booked Flights</a>
+    <a href="{{ url_for('main.profile_notify') }}">Notifications</a>
+    <a href="{{ url_for('main.profile_stats') }}">Statistics</a>
+</div>
+<section style="background-color: #002C45; height: 80vh; margin-top: 5px;">
+    <div style="margin: 25px 50px;">
+        <h1 style="text-align: center;">Statistics</h1>
+        <div style="display: flex; justify-content: space-between;">
+            <img src="{{ url_for('static', filename='img/new-dollar-bill-icon.png') }}" alt="" width="200px">
+            <img src="{{ url_for('static', filename='img/plane-icon.png') }}" alt="" width="200px">
+            <img src="{{ url_for('static', filename='img/new-miles-icon.png') }}" alt="" width="200px">
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+            <h1>Dollars Spent:</h1>
+            <h1>Miles Flown:</h1>
+            <h1>Miles Earned:</h1>
+        </div>
+        <div style="display: flex; justify-content: space-between;">
+            <h1>${{ money }}</h1>
+            <h1>{{ miles }}km</h1>
+            <h1>{{ flyer_mi }}km</h1>
+        </div>
+    </div>
+</section>
 {% endblock %}

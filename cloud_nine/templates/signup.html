@@ -5,16 +5,29 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta http-equiv="X-UA-Compatible" content="ie=edge">
         <link href="{{ url_for('static', filename='css/auth.css') }}" rel="stylesheet">
+        <link href="{{ url_for('static', filename='css/style.css') }}" rel="stylesheet">
     </head>
+    <div class="container">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert_{{ category }}">
+                        <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span> 
+                        <span>{{ message }}</span>
+                    </div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </div>
     <body>
         <div class="login-page">
             <div class="form">
-                <h1>Signup</h1>
+                <h1 style="color: black;">Signup</h1>
                 <form class="login-form" method="POST" action="{{ url_for('auth.signup') }}">
                     <input type="text" name="name" placeholder="username"/>
                     <input type="password" name="password" placeholder="password"/>
-                    <button>Signup</button>
-                    <p class="message">Already have an account? <a href="{{ url_for('auth.login') }}">Login</a></p>
+                    <button>login</button>
+                    <p class="message">Already have an account? <a href="{{ url_for('auth.login') }}">Signup</a></p>
                     <p class="message"><a href="{{ url_for('main.index') }}">Back To Home Page</a></p>
                 </form>
             </div>
